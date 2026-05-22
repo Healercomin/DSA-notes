@@ -1,0 +1,116 @@
+#Circular Linked List: Deleting elements at the middle
+
+Explanation:
+1. The program creates a circular linked list where the last node points back to the first node.
+2. The deleteMiddle() function searches for the node containing the given value using two pointers: temp and prev.
+3. When the element is found, prev->next is updated to skip the node, removing it from the list.
+4. The deleted node’s memory is released using free(), and the circular structure remains unchanged.
+
+#include <stdio.h>
+#include <stdlib.h>
+
+// Structure of node
+struct Node {
+    int data;
+    struct Node* next;
+};
+
+struct Node* head = NULL;
+
+// Insert node at end
+void insertEnd(int value) {
+    struct Node* newNode = (struct Node*)malloc(sizeof(struct Node));
+    newNode->data = value;
+
+    // If list is empty
+    if (head == NULL) {
+        head = newNode;
+        newNode->next = head;
+        return;
+    }
+
+    struct Node* temp = head;
+
+    while (temp->next != head) {
+        temp = temp->next;
+    }
+
+    temp->next = newNode;
+    newNode->next = head;
+}
+
+// Delete element from middle by value
+void deleteMiddle(int value) {
+
+    // If the list is empty
+    if (head == NULL) {
+        printf("List is empty\n");
+        return;
+    }
+
+    struct Node *temp = head, *prev = NULL;
+
+    // If head node contains value
+    if (head->data == value) {
+        printf("Use delete at start for head node\n");
+        return;
+    }
+
+    do {
+        prev = temp;
+        temp = temp->next;
+
+        if (temp->data == value) {
+            prev->next = temp->next;
+            free(temp);
+            printf("Node deleted\n");
+            return;
+        }
+
+    } while (temp != head);
+
+    printf("Element not found\n");
+}
+
+// Display list
+void display() {
+
+    if (head == NULL) {
+        printf("List is empty\n");
+        return;
+    }
+
+    struct Node* temp = head;
+
+    printf("Circular Linked List: ");
+
+    do {
+        printf("%d ", temp->data);
+        temp = temp->next;
+    } while (temp != head);
+
+    printf("\n");
+}
+
+// Main function
+int main() {
+
+    insertEnd(10);
+    insertEnd(20);
+    insertEnd(30);
+    insertEnd(40);
+    insertEnd(50);
+
+    printf("Before deletion:\n");
+    display();
+
+    deleteMiddle(30);
+
+    printf("After deleting middle element:\n");
+    display();
+
+    return 0;
+}
+
+**Healer note** I personally did C programming in Dev C++, and I will update the other topics soon. I hope this repo helps beginners.
+It's my first time creating one, so feel free to suggest
