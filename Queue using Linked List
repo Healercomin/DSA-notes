@@ -1,0 +1,69 @@
+#Queue using Linked List
+
+Explanation:
+1. This program implements a queue using a linked list in C. 
+2. It takes integer inputs from the user and enqueues them until -1 is entered, dynamically creating nodes using malloc. 
+3. After input ends, it performs one dequeue operation: removing the front element and printing its value. 
+4. Finally, it handles cases for empty queue, single-element queue, and multi-element queue separately.
+
+#include<stdio.h>
+#include<stdlib.h>
+struct node
+{
+	int data;
+	struct node *next;
+};
+
+int main()
+{
+ 
+ struct node *newnode,*rear=NULL,*front=NULL,*temp;
+ int val;
+ 
+ printf("Enter a value");
+ scanf("%d",&val);
+ 
+ while(val!=-1)
+ {
+ 
+ newnode=(struct node *)malloc(sizeof(struct node));
+ newnode->data=val;
+
+if(front==NULL)
+{
+front=rear=newnode;
+newnode->next=NULL;
+printf("Enqueue as first element \n");
+}
+else
+{
+rear->next=newnode;
+newnode->next=NULL;
+rear=newnode;
+printf("enqueue successful \n");
+}
+printf("Enter a value or -1 to exit");
+ scanf("%d",&val);
+}
+
+if(rear==NULL)
+{
+printf("Queue is Empty");
+}
+else if(front==rear && front!=NULL)
+{
+	printf("Deleted value is %d",front->data);
+free(front);
+front=rear=NULL;
+
+}
+else
+{
+printf("Deletd value is %d",front->data);
+temp=front;
+front=front->next;
+free(temp);
+}	
+
+	return 0;
+}
