@@ -1,0 +1,110 @@
+#Circular Linked list: Deleting elements at the end
+
+Explanation:
+
+#include <stdio.h>
+#include <stdlib.h>
+
+// Structure for node
+struct Node {
+    int data;
+    struct Node* next;
+};
+
+struct Node* head = NULL;
+
+// Insert node at end
+void insertEnd(int value) {
+
+    struct Node* newNode = (struct Node*)malloc(sizeof(struct Node));
+    newNode->data = value;
+
+    // If list is empty
+    if (head == NULL) {
+        head = newNode;
+        newNode->next = head;
+        return;
+    }
+
+    struct Node* temp = head;
+
+    // Move to last node
+    while (temp->next != head) {
+        temp = temp->next;
+    }
+
+    temp->next = newNode;
+    newNode->next = head;
+}
+
+// Delete node from end
+void deleteEnd() {
+
+    // If list is empty
+    if (head == NULL) {
+        printf("List is empty\n");
+        return;
+    }
+
+    // If only one node exists
+    if (head->next == head) {
+        free(head);
+        head = NULL;
+        return;
+    }
+
+    struct Node *temp = head, *prev = NULL;
+
+    // Traverse to last node
+    while (temp->next != head) {
+        prev = temp;
+        temp = temp->next;
+    }
+
+    // Remove last node
+    prev->next = head;
+
+    free(temp);
+}
+
+// Display circular linked list
+void display() {
+
+    if (head == NULL) {
+        printf("List is empty\n");
+        return;
+    }
+
+    struct Node* temp = head;
+
+    printf("Circular Linked List: ");
+
+    do {
+        printf("%d ", temp->data);
+        temp = temp->next;
+    } while (temp != head);
+
+    printf("\n");
+}
+
+// Main function
+int main() {
+
+    insertEnd(10);
+    insertEnd(20);
+    insertEnd(30);
+    insertEnd(40);
+
+    printf("Before deletion:\n");
+    display();
+
+    deleteEnd();
+
+    printf("After deleting from end:\n");
+    display();
+
+    return 0;
+}
+
+**Healer note** I personally did C programming in Dev C++, and I will update the other topics soon. I hope this repo helps beginners.
+It's my first time creating one, so feel free to suggest
