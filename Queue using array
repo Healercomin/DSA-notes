@@ -1,0 +1,72 @@
+#Queue using Arrays
+
+Explanation: Definition
+1. A queue is a linear data structure that follows FIFO (First In First Out).
+The element inserted first is removed first.
+2. A queue can be implemented using an array and two variables:
+front → points to the first element.
+rear → points to the last element.
+3. Operations
+Enqueue: Adds an element at the rear end.
+Dequeue: Removes an element from the front end.
+Display: Shows all elements currently in the queue.
+4. Advantages and Limitations:
+Easy to implement and access elements using array indices.
+A fixed size of the array may cause Queue Overflow when full, even if some positions at the front become empty (in a simple queue implementation).
+
+#include <stdio.h>
+#define MAX 5
+
+int queue[MAX];
+int front = -1, rear = -1;
+
+// Enqueue (Insert)
+void enqueue(int value) {
+    if (rear == MAX - 1) {
+        printf("Queue Overflow\n");
+    } else {
+        if (front == -1) front = 0;
+        rear++;
+        queue[rear] = value;
+        printf("Inserted: %d\n", value);
+    }
+}
+
+// Dequeue (Delete)
+void dequeue() {
+    if (front == -1 || front > rear) {
+        printf("Queue Underflow\n");
+    } else {
+        printf("Deleted: %d\n", queue[front]);
+        front++;
+    }
+}
+
+// Display Queue
+void display() {
+    if (front == -1 || front > rear) {
+        printf("Queue is Empty\n");
+    } else {
+        printf("Queue elements: ");
+        for (int i = front; i <= rear; i++) {
+            printf("%d ", queue[i]);
+        }
+        printf("\n");
+    }
+}
+
+int main() {
+    enqueue(10);
+    enqueue(20);
+    enqueue(30);
+
+    display();
+
+    dequeue();
+    display();
+
+    return 0;
+}
+
+**Healer note** I personally did C programming in Dev C++, and I will update the other topics soon. I hope this repo helps beginners.
+It's my first time creating one, so feel free to suggest
