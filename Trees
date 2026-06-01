@@ -1,0 +1,17 @@
+1. Definition
+A tree is a non-linear data structure used to store data in a hierarchical form.
+It consists of nodes connected by edges.
+2. Structure
+The topmost node is called the root node.
+Nodes connected below a parent are called child nodes.
+Nodes with no children are called leaf nodes.
+3. Basic Representation in C
+struct Node {
+    int data;
+    struct Node *left;
+    struct Node *right;
+};
+
+Each node stores data and pointers to its left and right child nodes.
+4. Applications
+Used in file systems, databases, expression evaluation, and searching/sorting algorithms such as Binary Search Trees (BSTs).
