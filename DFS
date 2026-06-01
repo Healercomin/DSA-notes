@@ -1,3 +1,44 @@
 #Depth First Search
 
 Explanation:
+1. Definition
+Depth First Search (DFS) is a graph/tree traversal algorithm that explores a path as deeply as possible before backtracking.
+2. Working
+DFS starts from a source node, visits it, and then recursively visits an unvisited adjacent node until no further nodes can be reached.
+3. Data Structure Used
+DFS uses a Stack (explicitly or through recursion) to keep track of nodes during traversal.
+4. Applications
+Path finding, cycle detection, topological sorting, and solving maze problems.
+DFS Code in C
+
+#include <stdio.h>
+
+int graph[5][5] = {
+    {0,1,1,0,0},
+    {1,0,0,1,1},
+    {1,0,0,0,0},
+    {0,1,0,0,0},
+    {0,1,0,0,0}
+};
+
+int visited[5] = {0};
+
+void DFS(int node) {
+    visited[node] = 1;
+    printf("%d ", node);
+
+    for(int i = 0; i < 5; i++) {
+        if(graph[node][i] == 1 && !visited[i]) {
+            DFS(i);
+        }
+    }
+}
+
+int main() {
+    printf("DFS Traversal: ");
+    DFS(0);
+    return 0;
+}
+
+**Healer note** I personally did C programming in Dev C++, and I will update the other topics soon. I hope this repo helps beginners.
+It's my first time creating one, so feel free to suggest
