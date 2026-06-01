@@ -1,7 +1,7 @@
 #Queue using Linked List
 
 Explanation:
-1. This program implements a queue using a linked list in C. 
+1. This program implements a queue using a linked list in C.  
 2. It takes integer inputs from the user and enqueues them until -1 is entered, dynamically creating nodes using malloc. 
 3. After input ends, it performs one dequeue operation: removing the front element and printing its value. 
 4. Finally, it handles cases for empty queue, single-element queue, and multi-element queue separately.
