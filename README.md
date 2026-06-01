@@ -12,6 +12,8 @@
   - implemented with arrays
   - implemented with a linked list
 4. Queue
+  - implemented with arrays
+  - implemented with a linked list
 5. Trees
 6. Graphs
 7. Hashing functions
