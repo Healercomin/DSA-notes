@@ -13,7 +13,8 @@ The first inserted node is processed first (FIFO).
 4. Applications
 Finding the shortest path in an unweighted graph.
 Network broadcasting, web crawling, and level-order traversal of trees.
-BFS Algorithm
+
+Algorithm:
 a. Start from the source node.
 b. Mark it as visited and enqueue it.
 c. While the queue is not empty:
@@ -59,3 +60,6 @@ printf("\n Enter the adjacency matrix: ");
 breadth_first_search(adj,visited,0);
 	 return 0;
 }
+
+**Healer note** I personally did C programming in Dev C++, and I will update the other topics soon. I hope this repo helps beginners.
+It's my first time creating one, so feel free to suggest
