@@ -1,7 +1,26 @@
 #Breadth First Search
 
 Explanation:
-
+1. Definition
+Breadth First Search (BFS) is a graph/tree traversal algorithm that visits nodes level by level.
+It explores all neighboring nodes before moving to the next level.
+2. Working
+BFS starts from a source node.
+It visits the node, marks it as visited, and adds its adjacent nodes to a queue.
+3. Data Structure Used
+BFS uses a Queue to maintain the order of nodes to be visited.
+The first inserted node is processed first (FIFO).
+4. Applications
+Finding the shortest path in an unweighted graph.
+Network broadcasting, web crawling, and level-order traversal of trees.
+BFS Algorithm
+a. Start from the source node.
+b. Mark it as visited and enqueue it.
+c. While the queue is not empty:
+   - Dequeue a node.
+   - Visit the node.
+   - Enqueue all its unvisited adjacent nodes.
+d. Repeat until the queue becomes empty.
 
 #include <stdio.h>
 #define MAX 4
