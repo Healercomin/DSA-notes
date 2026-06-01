@@ -11,6 +11,13 @@ DFS uses a Stack (explicitly or through recursion) to keep track of nodes during
 Path finding, cycle detection, topological sorting, and solving maze problems.
 DFS Code in C
 
+Algorithm:
+1. Start from the source node.
+2. Mark the node as visited.
+3. Visit an unvisited adjacent node recursively.
+4. If no unvisited adjacent node exists, backtrack.
+5. Repeat until all reachable nodes are visited.
+
 #include <stdio.h>
 
 int graph[5][5] = {
